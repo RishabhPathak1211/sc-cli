@@ -1,0 +1,22 @@
+{
+  "name": "salescode-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "salescode-cli": "./bin/index.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.12",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "js-yaml": "^4.1.0",
+    "yargs": "^17.7.2"
+  }
+}
