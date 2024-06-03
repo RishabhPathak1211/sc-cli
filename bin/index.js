@@ -67,6 +67,7 @@ const main = async (argv) => {
             if (argv.path) {
                 path = argv.path;
             }
+            console.log("Creating template...");
             await createTemplate(path, argv.template, argv.appType);
             break;
         }
@@ -75,6 +76,7 @@ const main = async (argv) => {
                 console.error("Provide package name!");
                 return;
             }
+            console.log("Installation in progress...");
             await installPackage(argv.package);
             addDependency(argv.package);
             break;
@@ -84,6 +86,7 @@ const main = async (argv) => {
                 console.log("Package name is required");
                 return;
             }
+            console.log("Uploading package")
             await publishPackage(argv.packageName);
             break;
         }
