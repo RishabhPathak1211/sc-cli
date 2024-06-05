@@ -3,6 +3,7 @@ const exec = util.promisify(require("child_process").exec);
 const fs = require("fs");
 const { extractZip } = require("./zipUtils");
 const { fetchTemplate } = require("./networkUtils");
+const { fetchConsumerKey } = require("./auth");
 const { installPackage } = require("./packageManager");
 const { addDependency, add, addSdkDependency } = require("./yamlUtils");
 
@@ -14,6 +15,13 @@ const preInstallationMapping = {
 };
 
 const createTemplate = async (path, template, appType) => {
+    const consumerKey = fetchConsumerKey();
+
+    if (!consumerKey) {
+        console.log("Login Required");
+        return;
+    }
+
     try {
         await exec(
             `flutter create ${
